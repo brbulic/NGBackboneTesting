@@ -7,27 +7,28 @@
  */
 
 /*global define:false */
-define(['backbone', 'jquery'], function (Backbone, $) {
+define(['backbone', 'jquery', 'views/MainView', 'views/NewEdit'], function (Backbone, $, MainView, NewEdit) {
     'use strict';
 
     var Router = Backbone.Router.extend({
         routes: {
-            '': 'home'
+            '': 'home',
+            'edit' : 'edit',
+            'new' : 'edit'
         }
-    });
-    var startHistory = function (baseView) {
-        var router = new Router();
-        router.on('route:home', function () {
-
-            if (baseView === undefined) {
-                $('#table-view').html("Hello world! Give me a default view in order to use!");
-            } else {
-                baseView.render();
-            }
-        });
-
-        Backbone.history.start();
-    };
+    }),
+        startHistory = function () {
+            var router = new Router();
+            router.on('route:home', function () {
+                var mainView = new MainView();
+                mainView.render();
+            });
+            router.on('route:edit', function () {
+                var newEdit = new NewEdit();
+                newEdit.render();
+            });
+            Backbone.history.start();
+        };
 
     return {
         startHistory: startHistory

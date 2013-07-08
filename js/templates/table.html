@@ -1,18 +1,20 @@
+<a href="#/new" class="btn btn-primary">New</a>
 <table class="table striped">
     <thead>
     <tr>
         <th>Name</th>
-        <th>Date</th>
-        <th>Clock In</th>
-        <th>Clock Out</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Grade</th>
     </tr>
     <tbody>
     <% _.each(users, function (user){ %>
     <tr>
         <td><%=user.get('Employee')['Name'] %></td>
-        <td><%=user.get('Date') %></td>
-        <td><%=user.get('Time_In_Txt') %></td>
-        <td><%=user.get('Time_Out_Txt') %></td>
+        <td><%=user.get('Title') %></td>
+        <td><%=user.get('Description') %></td>
+        <td><%=user.get('Number') %></td>
+        <td><a class="btn" href="#/edit">Edit</a></td>
     </tr>
     <%});%>
     </tbody>

@@ -7,12 +7,10 @@
  */
 
 /*global define:false */
-define(['framework/router', 'views/MainView'], function (router, MainView) {
+define(['framework/router', 'views/MainView'], function (router) {
     'use strict';
     var app = function () {
-        var mView = new MainView();
-        // dependency injection BITCH!
-        router.startHistory(mView);
+        router.startHistory();
     };
     return {
         initialize : app

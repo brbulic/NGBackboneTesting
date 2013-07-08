@@ -10,15 +10,15 @@
 define(['backbone',
     'jquery',
     'underscore',
-    'models/TimeClockModel',
-    'models/TimeClockCollection',
-    'text!templates/table.html'], function (Backbone, $, _, TimeClockModel, TimeClockCollection, tableTemplate) {
+    'models/BackboneTestingModel',
+    'models/BackboneTestingCollection',
+    'text!templates/table.html'], function (Backbone, $, _, BackboneTestingModel, BackboneTestingCollection, tableTemplate) {
     'use strict';
     var MainView = Backbone.View.extend({
         el: '.page',
         render: function () {
             var self = this;
-            var cloudObjects = new TimeClockCollection();
+            var cloudObjects = new BackboneTestingCollection();
             cloudObjects.fetch({
                 success: function (newUsers) {
                     var template = _.template(tableTemplate, {users: newUsers.models});
@@ -34,13 +34,3 @@ define(['backbone',
 
     return MainView;
 });
-
-/*
- var users = new Users();
- users.fetch({
- success: function (users) {
- var template = _.template($('#user-list-template').html(), {users: users.models});
- base.$el.html(template);
- }
- });
- */
