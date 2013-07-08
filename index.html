@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>One test page shit</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"/>
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<script type="text/template" id="user-list-template">
+    <table class="table striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Clock In</th>
+            <th>Clock Out</th>
+        </tr>
+        <tbody>
+        <% _.each(users, function (user){ %>
+        <tr>
+            <td><%=user.get('Employee')['Name'] %></td>
+            <td><%=user.get('Date') %></td>
+            <td><%=user.get('Time_In_Txt') %></td>
+            <td><%=user.get('Time_Out_Txt') %></td>
+        </tr>
+        <%});%>
+        </tbody>
+        </thead>
+    </table>
+</script>
+<div class="container">
+    <h1>User Manager</h1>
+    <hr/>
+    <div class="page" id="table-view">
+
+    </div>
+</div>
+
+
+<script data-main="js/main" src="js/vendor/require-jquery.js"></script>
+</body>
+</html>
