@@ -7,7 +7,12 @@
  */
 /*global define:false */
 
-define(['backbone', 'jquery', 'underscore', 'models/TimeClockModel', 'models/TimeClockCollection'], function (Backbone, $, _, TimeClockModel, TimeClockCollection) {
+define(['backbone',
+    'jquery',
+    'underscore',
+    'models/TimeClockModel',
+    'models/TimeClockCollection',
+    'text!templates/table.html'], function (Backbone, $, _, TimeClockModel, TimeClockCollection, tableTemplate) {
     'use strict';
     var MainView = Backbone.View.extend({
         el: '.page',
@@ -16,7 +21,7 @@ define(['backbone', 'jquery', 'underscore', 'models/TimeClockModel', 'models/Tim
             var cloudObjects = new TimeClockCollection();
             cloudObjects.fetch({
                 success: function (newUsers) {
-                    var template = _.template($('#user-list-template').html(), {users: newUsers.models});
+                    var template = _.template(tableTemplate, {users: newUsers.models});
                     self.$el.html(template);
                 },
                 error: function (err, xhr, options) {

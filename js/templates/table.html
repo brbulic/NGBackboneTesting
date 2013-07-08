@@ -1,22 +1,20 @@
-<script type="text/template" id="user-list-template">
-    <table class="table striped">
-        <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th></th>
-        </tr>
-        <tbody>
-        <% _.each(users, function (user){ %>
-        <tr>
-            <td><%=user.get('firstname') %></td>
-            <td><%=user.get('lastname') %></td>
-            <td><%=user.get('age') %></td>
-            <td></td>
-        </tr>
-        <%});%>
-        </tbody>
-        </thead>
-    </table>
-</script>
+<table class="table striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Clock In</th>
+        <th>Clock Out</th>
+    </tr>
+    <tbody>
+    <% _.each(users, function (user){ %>
+    <tr>
+        <td><%=user.get('Employee')['Name'] %></td>
+        <td><%=user.get('Date') %></td>
+        <td><%=user.get('Time_In_Txt') %></td>
+        <td><%=user.get('Time_Out_Txt') %></td>
+    </tr>
+    <%});%>
+    </tbody>
+    </thead>
+</table>
