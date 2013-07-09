@@ -14,7 +14,7 @@
         <td><%=user.get('Title') %></td>
         <td><%=user.get('Description') %></td>
         <td><%=user.get('Number') %></td>
-        <td><a class="btn" href="#/edit">Edit</a></td>
+        <td><a class="btn" id="edit_object" data-user-id="<%=user.get('Id') %>" href="#/edit/<%=user.get('Id')%>">Edit</a></td>
     </tr>
     <%});%>
     </tbody>

@@ -13,24 +13,10 @@ define(['backbone', 'jquery', 'views/MainView', 'views/NewEdit'], function (Back
     var Router = Backbone.Router.extend({
         routes: {
             '': 'home',
-            'edit' : 'edit',
-            'new' : 'edit'
+            'edit/:id': 'edit',
+            'new': 'edit'
         }
-    }),
-        startHistory = function () {
-            var router = new Router();
-            router.on('route:home', function () {
-                var mainView = new MainView();
-                mainView.render();
-            });
-            router.on('route:edit', function () {
-                var newEdit = new NewEdit();
-                newEdit.render();
-            });
-            Backbone.history.start();
-        };
+    });
 
-    return {
-        startHistory: startHistory
-    };
+    return Router;
 });

@@ -1,23 +1,40 @@
-<form class="form-horizontal">
-    <legend>Custom Object test</legend>
+<form class="form-horizontal submit-form">
+    <script>
+        function isFound (object) {
+            'use strict';
+            if (object === null) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+    <legend><%=isFound(review) ? 'Edit' : 'New' %> Element</legend>
     <div class="control-group">
         <label class="control-label">Title</label>
         <div class="controls">
-            <input name="title" type="text" value="">
+            <input name="Title" type="text" value="<%=isFound(review) ? review.get('Title') : '' %>">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label">Description</label>
         <div class="controls">
-            <input name="description" type="text" value="">
+            <input name="Description" type="text" value="<%=isFound(review) ? review.get('Description') : '' %>">
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Age</label>
+        <label class="control-label">Number</label>
         <div class="controls">
-            <input name="age" type="text" value="">
+            <input name="Number" type="text" value="<%=isFound(review) ? review.get('Number') : '' %>">
         </div>
     </div>
     <hr/>
-    <a class="btn" href="#/">Back</a>
+    <p>
+        <a class="btn" href="#/">Back</a>
+        <button type="submit" class="btn"><%=isFound(review) ? 'Update' : 'Create' %></button>
+        <% if (isFound(review)) { %>
+        <input type="hidden" name="Id" value="<%= review.get('Id') %>" />
+        <button data-user-id="<%= review.get('Id') %>" class="btn btn-danger delete">Delete</button>
+        <% }; %>
+    </p>
 </form>
