@@ -18,6 +18,7 @@ An example object
         "Title": "Test",
         "Description": "This is a test description",
         "Number": "100"
+        "Date" : "7/26/2013 12:00 AM"
     }
 
 */
@@ -27,13 +28,17 @@ define(['backbone', "underscore"], function (Backbone, _) {
 
     // getters
     var BackboneTestingModel = Backbone.Model.extend({
-        urlRoot: '/rest/cloud/BackboneTesting'
+        urlRoot: '/rest/cloud/BackboneTesting',
+        setDate : function () {
+            var date = new Date();
+            this.set("Date", date.toString("MM/dd/yyyy h:m a"));
+        }
     });
 
     BackboneTestingModel.DefaultUser = {
-        "EmployeeNumber": "001",
-        "Id": "28902ae038ce43c0bfbff78dad1bad5a",
-        "Name": "Alexander Graham Bell AGB"
+        "EmployeeNumber": "em000090",
+        "Id": "209a08d5efc4c6ae",
+        "Name": "Admin User"
     };
 
     return BackboneTestingModel;

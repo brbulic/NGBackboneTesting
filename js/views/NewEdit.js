@@ -39,6 +39,8 @@ define(['backbone',
         processData: function (event) {
             var userDetails = $(event.currentTarget).serializeObject(),
                 user = new BackboneTestingModel();
+
+            user.setDate();
             userDetails.Employee = BackboneTestingModel.DefaultUser;
 
             if (userDetails.Id !== 'undefined') {

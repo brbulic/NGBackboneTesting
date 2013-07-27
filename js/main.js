@@ -16,7 +16,7 @@ require.config({
     }
 });
 
-require(['app/app', 'jquery', 'backbone','underscore'], function (App, $, Backbone, _) {
+require(['app/app', 'jquery', 'backbone', 'underscore'], function (App, $, Backbone, _) {
     'use strict';
 
     $.fn.serializeObject = function () {
@@ -36,13 +36,13 @@ require(['app/app', 'jquery', 'backbone','underscore'], function (App, $, Backbo
     };
 
     $.ajaxPrefilter(function (options, originalOption, jqXHR) {
-        options.url = 'https://api.qa.neogov.net' + options.url;
+        options.url = 'https://api.staging.neogov.net' + options.url;
         options.crossDomain = true;
         options.headers = {
             "Content-Type" : "application/json"
         };
         options.beforeSend = function (jqXHR) {
-            jqXHR.setRequestHeader('Authorization', 'Basic YWxleGFuZGVyZ2JAbmVvZ292Lm5ldDp3ZWxjb21l');
+            jqXHR.setRequestHeader('Authorization', 'Basic YWRtaW5AbmVvZ292LmNvbTpXZWxjb21l');
         };
     });
 
