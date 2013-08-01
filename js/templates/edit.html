@@ -33,7 +33,7 @@
         <a class="btn" href="#/">Back</a>
         <button type="submit" class="btn"><%=isFound(review) ? 'Update' : 'Create' %></button>
         <% if (isFound(review)) { %>
-        <input type="hidden" name="Id" value="<%= review.get('Id') %>" />
+        <input type="hidden" name="id" value="<%= review.get('Id') %>" />
         <button data-user-id="<%= review.get('Id') %>" class="btn btn-danger delete">Delete</button>
         <% }; %>
     </p>

@@ -40,13 +40,7 @@ define(['backbone',
             var userDetails = $(event.currentTarget).serializeObject(),
                 user = new BackboneTestingModel();
 
-            user.setDate();
             userDetails.Employee = BackboneTestingModel.DefaultUser;
-
-            if (userDetails.Id !== 'undefined') {
-                user.set({'id' : userDetails.Id});
-                delete userDetails.Id;
-            }
 
             var options = {
                 success: function (user) {
@@ -62,14 +56,22 @@ define(['backbone',
             return false;
         },
         removeUser : function (event) {
-            this.user.destroy({
-                success: function () {
+            var dataUserId = $(event.currentTarget).attr('data-user-id'),
+                userDetails = new BackboneTestingModel();
 
+            userDetails.set({'id' : dataUserId});
+
+            userDetails.destroy({
+                success: function (response) {
+                    console.log("I have deleted it." + JSON.stringify(response, undefined, 1));
+                    window.App.router.navigate('', {trigger : true});
                 },
-                failure : function () {
-
+                error : function (response) {
+                    console.log("Tis a mistake here" + JSON.stringify(response, undefined, 1));
+                    window.App.router.navigate('', {trigger : true});
                 }
             });
+            return false;
         }
     });
 

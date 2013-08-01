@@ -28,17 +28,13 @@ define(['backbone', "underscore"], function (Backbone, _) {
 
     // getters
     var BackboneTestingModel = Backbone.Model.extend({
-        urlRoot: '/rest/cloud/BackboneTesting',
-        setDate : function () {
-            var date = new Date();
-            this.set("Date", date.toString("MM/dd/yyyy h:m a"));
-        }
+        urlRoot: '/rest/cloud/BackboneTesting'
     });
 
     BackboneTestingModel.DefaultUser = {
-        "EmployeeNumber": "em000090",
-        "Id": "209a08d5efc4c6ae",
-        "Name": "Admin User"
+        "EmployeeNumber": "001",
+        "Id": "28902ae038ce43c0bfbff78dad1bad5a",
+        "Name": "Alexander Graham Bell AGB"
     };
 
     return BackboneTestingModel;
