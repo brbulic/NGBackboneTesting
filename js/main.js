@@ -37,6 +37,7 @@ require(['app/app', 'jquery', 'backbone', 'underscore'], function (App, $, Backb
 
     $.ajaxPrefilter(function (options, originalOption, jqXHR) {
         options.url = 'https://api.qa.neogov.net' + options.url;
+        options.crossOrigin = true;
         options.crossDomain = true;
         options.headers = {
             "Content-Type" : "application/json"
